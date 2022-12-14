@@ -266,10 +266,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Code Linting
 " Plugin 'vim-syntastic/syntastic'
 
-Plugin 'junegunn/vim-easy-align' 
-
 " Plugin 'nathanaelkane/vim-indent-guides'
 
+" display vertical indent line
 Plugin 'Yggdroot/indentLine'
 
 " 用 gc/gcc 快速下comment
@@ -322,6 +321,9 @@ Plugin 'tyru/open-browser.vim'
 " fuzzy finder
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+" alignment helper
+Plugin 'junegunn/vim-easy-align'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
