@@ -78,10 +78,8 @@ ZSH_THEME="random"
 plugins=(
   git
   autojump
-  jira
-  emoji
+  fzf
   zsh-autosuggestions
-  aws
 )
 
 source $ZSH/oh-my-zsh.sh
