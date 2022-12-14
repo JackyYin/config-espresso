@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update -y
-sudo apt-get install -y git zsh tmux build-essential fzf vim vim-gtk cmake autojump silversearcher-ag
+sudo apt-get install -y git zsh tmux build-essential fzf vim vim-gtk cmake autojump silversearcher-ag cscope net-tools
 
 # VIM
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
