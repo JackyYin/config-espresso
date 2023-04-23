@@ -1,7 +1,13 @@
 #!/bin/bash
 
-sudo apt-get update -y
-sudo apt-get install -y git zsh tmux build-essential fzf vim vim-gtk cmake autojump silversearcher-ag cscope net-tools
+SUDO=
+sudo echo "Testing sudo..."
+if [ $? -eq 0 ]; then
+    SUDO="sudo"
+fi
+
+$SUDO apt-get update -y
+$SUDO apt-get install -y git zsh tmux build-essential fzf vim vim-gtk cmake autojump silversearcher-ag cscope net-tools
 
 # VIM
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
