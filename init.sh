@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SUDO=
-sudo echo "Testing sudo..."
+sudo echo "Testing sudo..." > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     SUDO="sudo"
 fi
