@@ -154,7 +154,7 @@ nnoremap <leader><right> gt
 nnoremap <tab> :Lexplore<CR>
 
 " custom func mapping
-nnoremap f     :call PrintPath()<CR>
+nnoremap ff    :call PrintPath()<CR>
 nnoremap <C-c> :call CopyPath()<CR>
 
 " window size
@@ -190,6 +190,14 @@ nmap ga <Plug>(EasyAlign)
 " FZF
 
 nmap fb :Buffers<CR>
+
+
+" ----------------------------------------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------------------------------------------
+" Clang-format
+
+let g:clang_format#auto_format = 1
 
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
@@ -234,6 +242,20 @@ nmap zd :tab cs find d <C-R>=expand("<cword>")<CR><CR>
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
+" Github Copilot
+
+" Accept
+imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+imap <C-d> <Cmd>call copilot#Dismiss()<CR>
+imap <C-n> <Cmd>call copilot#Next()<CR>
+imap <C-p> <Cmd>call copilot#Previous()<CR>
+imap <C-s> <Cmd>call copilot#Suggest()<CR>
+
+let g:copilot_no_maps = v:true
+
+" ----------------------------------------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------------------------------------------
 " Vundle
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -266,9 +288,10 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Code Linting
 " Plugin 'vim-syntastic/syntastic'
 
+Plugin 'junegunn/vim-easy-align'
+
 " Plugin 'nathanaelkane/vim-indent-guides'
 
-" display vertical indent line
 Plugin 'Yggdroot/indentLine'
 
 " 用 gc/gcc 快速下comment
@@ -322,9 +345,9 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" alignment helper
-Plugin 'junegunn/vim-easy-align'
+Plugin 'github/copilot.vim'
 
+Plugin 'rhysd/vim-clang-format'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
