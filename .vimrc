@@ -92,18 +92,24 @@ set statusline+=%F
 " ----------------------------------------------------------------------------------------------------------------
 "  functions
 
-func! PrintPath()
+func! s:PrintPath()
   echo "filetype: " . &filetype
   echo "abs path: " . expand('%:p')
   echo "rel path: " . expand('%:.')
   echo "home path: " . expand('%:~')
 endfunc
 
-func! CopyPath()
+func! s:CopyPath()
   let @+ = expand('%:p')
   echo 'path copied!'
 endfunc
 
+
+func! s:FileCopy(newfile)
+  let l:cmd = "cp " . expand("%:p") . " " . a:newfile
+  echo l:cmd
+  eval(system(l:cmd))
+endfunc
 
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
@@ -154,8 +160,8 @@ nnoremap <leader><right> gt
 nnoremap <tab> :Lexplore<CR>
 
 " custom func mapping
-nnoremap ff    :call PrintPath()<CR>
-nnoremap <C-c> :call CopyPath()<CR>
+nnoremap ff    :call <SID>PrintPath()<CR>
+nnoremap <C-c> :call <SID>CopyPath()<CR>
 
 " window size
 if bufwinnr(1)
@@ -184,12 +190,16 @@ nmap ga <Plug>(EasyAlign)
 "noremap <tab> :NERDTreeToggle<CR>
 "nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
+command! -n=1 -complete=file_in_path FileCopy :call s:FileCopy('<args>')
+
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
 " ----------------------------------------------------------------------------------------------------------------
 " FZF
 
-nmap fb :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :GFiles<CR>
 
 
 " ----------------------------------------------------------------------------------------------------------------
